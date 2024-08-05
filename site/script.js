@@ -44,6 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Restart button event
     restartButton.addEventListener("click", () => {
+        for (let r = 0; r < rows; r++) {
+            const row = [];
+            for (let c = 0; c < columns; c++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.dataset.row = r;
+                cell.dataset.column = c;
+                gameBoard.appendChild(cell);
+                row.push(cell);
+            }
+            board.push(row);
+        }    
+        
         board.forEach(row => {
             row.forEach(cell => {
                 cell.classList.remove("red", "yellow");
